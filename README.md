@@ -62,7 +62,7 @@ To add a chapter create a directory for it (named, e.g., `Example`) and put ther
 Add your chapter to:
 
 * `pillar.conf` in the `inputFiles` array as: `"Example/Example.pillar"`, and
-* `_support/templates/book.latex.template` in `\graphicspath` as `{Example/}`
+* `support/templates/book.latex.template` in `\graphicspath` as `{Example/}`
 
 ###Caveats
 

@@ -1,4 +1,4 @@
 #!/bin/bash
 
-wget --no-check-certificate https://raw2.github.com/SquareBracketAssociates/PharoForTheEnterprise-english/master/download.sh -O - | bash
+wget --no-check-certificate https://raw.githubusercontent.com/LucFabresse/book-skeleton/master/download.sh -O - | bash
 

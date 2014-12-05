@@ -27,5 +27,4 @@
 auto/
 files/
 /package-cache
-/Book.pdf
-/Book.tex
+/book-result
