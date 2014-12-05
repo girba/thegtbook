@@ -9,7 +9,7 @@ if hash "pillar" 2>/dev/null; then
   PILLAR_COMMAND="pillar"
 fi
 
-rm -fr .DS_Store Pharo.changes Pharo.image pharo-vm pharo-ui vm.sh vm-ui.sh pharo pillar package-cache stderr stdout book-result
+rm -fr .DS_Store Pharo.changes Pharo.image pharo-vm pharo-ui vm.sh vm-ui.sh pharo pillar package-cache stderr stdout book-result texput.log
 
 for chapter in `$PILLAR_COMMAND show inputFiles`; do
 	dir=$(dirname $chapter)

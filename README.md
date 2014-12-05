@@ -14,13 +14,15 @@ How to use Skeleton
 
 * Fork this repository, and start writing your book (explained in the next section).
 * Customise `pillar.conf` with your book's title.
-* Add this repository as a remote:
+* use the `updateBookSkeleton.sh` script. Basically, this script does:
+	
+	* Add this repository as a remote:
 
   ```shell
   git remote add skeleton https://github.com/pillar-markup/book-skeleton.git
   ```
 
-* Then you want to get updates from this repository execute:
+	* Then you want to get updates from this repository execute:
 
   ```shell
   git pull skeleton master
@@ -41,7 +43,7 @@ and then to archive these artefacts:
 
 Also Skeleton comes with [Travis CI](https://travis-ci.org) configuration file. This allows you to start automated testing of your book just by enabling it on Travis CI service. Finally you can follow [Sharing Travis-CI generated files](http://sleepycoders.blogspot.com/2013/03/sharing-travis-ci-generated-files.html) tutorial, to hack GitHub and Travis into storing your artefacts.
 
-<!--- SKELETON-SPECIFIC DATA ENDS HERE --->
+<!-- SKELETON-SPECIFIC DATA ENDS HERE -->
 
 
 How to write a book
@@ -51,9 +53,12 @@ This book is written in Pillar markup. If you are not familiar with it please ch
 
 ###Generating the book
 
-First of all you have to run `./download.sh` to obtain the Pillar executable that does all the job.
+1. Execute `./download.sh` to obtain the Pillar executable that does all the job (do it only ONCE).
+2. Execute `./compile.sh` to generate your book in the `book-result` folder (specified in `pillar.conf`)
 
-To generate your book execute `./compile.sh`. If you want to generate only one chapter, pass the file's path to the script: `./compile.sh Example/Example.pillar`. If you have `pdflatex` installed and available in your system's `PATH`, the script will also generate pdf files.
+###Generating one chapter
+
+If you want to generate only one chapter, pass the file's path to the script: `./compile.sh Example/Example.pillar`. If you have `pdflatex` installed and available in your system's `PATH`, the script will also generate pdf files.
 
 ###Adding a chapter
 
@@ -62,8 +67,35 @@ To add a chapter create a directory for it (named, e.g., `Example`) and put ther
 Add your chapter to:
 
 * `pillar.conf` in the `inputFiles` array as: `"Example/Example.pillar"`, and
-* `support/templates/book.latex.template` in `\graphicspath` as `{Example/}`
+* `support/templates/book.latex.template` in `\graphicspath` as `{../Example/}`
 
+###Installing pillar command
+
+If you use `pillar` in different books, you can install it once for all your books and then avoid executing the `download.sh` script anymore to not duplicates all the files (Pillar image, ...) in each repository of each books.
+
+Steps to install `pilar`:
+
+1. You already executed the `./download.sh` script i.e. you have the `pillar` script, ...
+2. Copy you the script to your user bin folder
+	
+		cp pillar ~/bin
+
+3. Copy the ressources to PILLAR_ROOT (wherever you want such as ~/Pillar) 
+
+		cp pharo Pharo.changes Pharo.image pharo-vm $PILLAR_ROOT
+	
+4. Set these environment variables in your shell start up (`~/.bashrc` or `~/.zshrc`)
+
+		cat >> ~/.zshrc < END
+		
+		export PHARO_VM="${PILLAR_ROOT}/pharo"
+		export PILLAR_IMAGE="${PILLAR_ROOT}/Pharo.image"
+		
+		END
+	
+Now, you should be able to use the `pillar` in your shell as any other commands. 
+And, when you will clone a book repository, you don't have to execute the `download.sh` and you can directly compile it using `compile.sh`. 
+		
 ###Caveats
 
 * You must neither use spaces nor underscores (`_`) in file names.
