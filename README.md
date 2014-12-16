@@ -95,10 +95,19 @@ Steps to install `pilar`:
 	
 Now, you should be able to use the `pillar` in your shell as any other commands. 
 And, when you will clone a book repository, you don't have to execute the `download.sh` and you can directly compile it using `compile.sh`. 
-		
+
+	
 ###Caveats
 
 * You must neither use spaces nor underscores (`_`) in file names.
+
+* Some png file may trigger an error when compiling tex to pdf
+
+	libpng warning: iCCP: known incorrect sRGB profile
+
+Solution, convert png file to use the right color profile
+
+	find . -type f -name "*.png" -exec convert {} -strip {} \;
 
 Tools
 -----
