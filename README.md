@@ -12,6 +12,13 @@ Pillar Book Skeleton provides a predefined structure for source files, as well a
 How to use Skeleton
 -------------------
 
+Simple way:
+
+	cd MyBook
+	curl https://raw.githubusercontent.com/pillar-markup/book-skeleton/master/createNewBook.sh | bash
+
+Other way:
+
 * Fork this repository, and start writing your book (explained in the next section).
 * Customise `pillar.conf` with your book's title.
 * use the `updateBookSkeleton.sh` script. Basically, this script does:
@@ -95,7 +102,17 @@ Steps to install `pilar`:
 	
 Now, you should be able to use the `pillar` in your shell as any other commands. 
 And, when you will clone a book repository, you don't have to execute the `download.sh` and you can directly compile it using `compile.sh`. 
-		
+
+###Fix PNG errors while compiling LaTeX
+
+Some png file may trigger an error when compiling tex to pdf
+
+	libpng warning: iCCP: known incorrect sRGB profile
+
+Solution, convert png file to use the right color profile
+
+	find . -type f -name "*.png" -exec convert {} -strip {} \;
+	
 ###Caveats
 
 * You must neither use spaces nor underscores (`_`) in file names.

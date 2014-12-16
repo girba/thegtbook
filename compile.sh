@@ -5,12 +5,14 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+LATEX_COMPILER="pdflatex"
+# LATEX_COMPILER="lualatex"
+
 PILLAR_COMMAND="./pillar"
 
 if hash "pillar" 2>/dev/null; then
   PILLAR_COMMAND="pillar"
 fi
-
 
 function pillar_all() {
   $PILLAR_COMMAND export --to='LaTeX whole book'
@@ -30,7 +32,7 @@ function mypdflatex() {
   pillar_file="$1"
 
   echo "Compiling PDF from $pillar_file..."
-  pdflatex -halt-on-error -file-line-error -interaction batchmode "$pillar_file" 2>&1 1>/dev/null
+  ${LATEX_COMPILER} -halt-on-error -file-line-error -interaction batchmode "$pillar_file" 2>&1 1>/dev/null
   ret=$?
   if [[ $ret -ne 0 ]]; then
     cat $pillar_file.log
@@ -74,7 +76,7 @@ function compile_latex_book() {
 }
 
 function latex_enabled() {
-  hash pdflatex 2>/dev/null
+  hash ${LATEX_COMPILER} 2>/dev/null
 }
 
 if [[ $# -eq 1 ]]; then

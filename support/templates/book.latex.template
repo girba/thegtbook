@@ -8,6 +8,7 @@
         ignoreheadfoot
 ]{geometry}
 \input{../support/latex/common.tex}
+% \input{../support/latex/commonLuaTex.tex}
 \setboolean{lulu}{true}
 %=================================================================
 % Add the path for the figures of each chapter here:
