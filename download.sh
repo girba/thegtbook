@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 VM_INSTALL_URL="http://get.pharo.org/vm"
-IMAGE_URL="https://ci.inria.fr/pharo-contribution/job/Pillar/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/Pillar.zip"
-
+IMAGE_URL="https://ci.inria.fr/pharo-contribution/job/Pillar/PHARO=40,VERSION=stable,VM=vm/lastSuccessfulBuild/artifact/Pillar-deployment.zip"
 usage() {
     cat <<HELP
 Usage: $0 [-h|--help] [vm] [image]
