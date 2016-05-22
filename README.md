@@ -1,9 +1,11 @@
-Pillar Book Skeleton [![Build Status](https://travis-ci.org/pillar-markup/book-skeleton.svg?branch=master)](https://travis-ci.org/pillar-markup/book-skeleton)
+The Glamorous Toolkit Book
 ====================
 
-This is a skeleton that can be used as a starting place to write your book. For now on this it is being used by [PharoForTheEnterprise](https://github.com/SquareBracketAssociates/PharoForTheEnterprise-english) and [UpdatedPharoByExample](https://github.com/SquareBracketAssociates/UpdatedPharoByExample) books.
+This is a book describing the Glamorous Toolkit.
 
-_You should replace this intro and first two sections with a nice information about your book :)_
+
+Based on the Pillar Book Skeleton [![Build Status](https://travis-ci.org/pillar-markup/book-skeleton.svg?branch=master)](https://travis-ci.org/pillar-markup/book-skeleton)
+====================
 
 What is Skeleton
 ----------------
