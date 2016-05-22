@@ -29,3 +29,8 @@ files/
 /package-cache
 /book-result
 /texput.log
+*.html
+
+*.md
+
+*.tex
